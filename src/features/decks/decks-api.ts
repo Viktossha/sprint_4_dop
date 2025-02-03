@@ -23,7 +23,7 @@ type fetchDecks = {
   }
 }
 
-type DeckType = {
+export type DeckType = {
   isFavorite: boolean
   author: {
     id: string
