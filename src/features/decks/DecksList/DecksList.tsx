@@ -1,17 +1,15 @@
 import s from './DecksList.module.css'
 import { useEffect } from 'react'
-import axios from 'axios'
-import { decksApi, type DeckType, instance } from '../decks-api.ts'
-import { useDispatch, useSelector } from 'react-redux'
-import type { AppRootState } from '../../../app/store.ts'
+import { decksApi } from '../decks-api.ts'
+import { useAppDispatch, useAppSelector } from '../../../app/store.ts'
 import { setDecksAC } from '../decks-reducer.ts'
 import { DeckItem } from './DeckItem/DeckItem.tsx'
+import { selectDecks } from '../decks-selectors.ts'
 
 export const DecksList = () => {
 
-  const decks = useSelector<AppRootState, DeckType[]>(state => state.decksReducer.decks)
-
-  const dispatch = useDispatch()
+  const decks = useAppSelector(selectDecks)
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
     decksApi.getDecks().then(res => dispatch(setDecksAC(res.data.items)))
