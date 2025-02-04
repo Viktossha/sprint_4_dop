@@ -11,6 +11,9 @@ export const decksApi = {
   getDecks() {
     return instance.get<fetchDecks>('/v2/decks')
   },
+  addDeck(name: string) {
+    return instance.post('v1/decks', { name })
+  }
 }
 
 type fetchDecks = {
