@@ -13,7 +13,7 @@ export const DecksList = () => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(fetchDecksTC)
+    dispatch(fetchDecksTC())
   }, [])
 
   return <ul className={s.list}>
