@@ -20,8 +20,8 @@ export const addDeckTC = (name: string) => {
     name: name,
     isPrivate: false,
     cover: '',
-    created: '',
-    update: '',
+    created: '111',
+    updated: '111',
     cardsCount: 3,
   }
   return (dispatch: AppDispatch) => {
