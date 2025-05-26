@@ -38,6 +38,6 @@ export type DeckType = {
   isPrivate: boolean
   cover: string
   created: string
-  update: string
+  updated: string
   cardsCount: number
 }
