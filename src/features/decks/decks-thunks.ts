@@ -25,6 +25,6 @@ export const addDeckTC = (name: string) => {
     cardsCount: 3,
   }
   return (dispatch: AppDispatch) => {
-    decksApi.addDeck(name).then(res => dispatch(addDecksAC(newDeck)))
+    return decksApi.addDeck(name).then(res => dispatch(addDecksAC(newDeck)))
   }
 }
