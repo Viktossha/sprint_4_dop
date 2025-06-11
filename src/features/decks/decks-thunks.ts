@@ -1,5 +1,5 @@
 import type { AppDispatch } from '../../app/store.ts'
-import { decksApi } from './decks-api.ts'
+import { type AddDeckParams, decksApi } from './decks-api.ts'
 import { addDecksAC, setDecksAC } from './decks-reducer.ts'
 
 export const fetchDecksTC = () => {
@@ -8,23 +8,8 @@ export const fetchDecksTC = () => {
   }
 }
 
-export const addDeckTC = (name: string) => {
-  const newDeck = {
-    isFavorite: true,
-    author: {
-      id: '1111111',
-      name: 'Vika'
-    },
-    id: 'rn89thher-48t-48h6',
-    userId: '5445',
-    name: name,
-    isPrivate: false,
-    cover: '',
-    created: '111',
-    updated: '111',
-    cardsCount: 3,
-  }
+export const addDeckTC = (params: AddDeckParams) => {
   return (dispatch: AppDispatch) => {
-    return decksApi.addDeck(name).then(res => dispatch(addDecksAC(newDeck)))
+    return decksApi.addDeck(params).then(res => dispatch(addDecksAC(res.data)))
   }
 }
